@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <form >
+        <input type="number" id="number_a">
+        <input type="number" id="nubber_b">
+        <button onclick="sum()"></button>
+        <button onclick="min()"></button>
+        <button onclick="sub()"></button>
+        <button onclick="su()"></button>
+
+    </form>
+</div>
+</body>
+</html>
+<script>
+var sum = function () {
+    var action = 'subtract';
+    var baseURL = 'http://localhost:8000/';
+    var number_a = $('#number_a').val();
+    var number_b = $('#nubber_b').val();
+    $.ajax({
+                method: 'POST',
+                url: baseURL + action,
+                data: {a: number_a, b: nubber_b},
+                success: function (response) {
+                    alert(response)
+                },
+                error: function (error) {
+                    $.alert(error);
+                }
+            });
+
+}
+var min = function () {
+    var number_a = $('#number_a').val();
+    var number_b = $('#nubber_b').val();
+    var baseURL = 'http://localhost:8000/';
+    var action = 'min';
+    $.ajax({
+                method: 'POST',
+                url: baseURL + action,
+                data: {a: number_a, b: nubber_b},
+                success: function (response) {
+                    alert(response)
+                },
+                error: function (error) {
+                    $.alert(error);
+                }
+            });
+
+}
+var sub = function () {
+    var baseURL = 'http://localhost:8000/';
+    var action = 'multiply';
+    var number_a = $('#number_a').val();
+    var number_b = $('#nubber_b').val();
+    $.ajax({
+                method: 'POST',
+                url: baseURL + action,
+                data: {a: number_a, b: nubber_b},
+                success: function (response) {
+                    alert(response)
+                },
+                error: function (error) {
+                    $.alert(error);
+                }
+            });
+
+}
+var su = function () {
+    var baseURL = 'http://localhost:8000/';
+    var action = 'divide';
+    var number_a = $('#number_a').val();
+    var number_b = $('#nubber_b').val();
+    $.ajax({
+                method: 'POST',
+                url: baseURL + action,
+                data: {a: number_a, b: number_b},
+                success: function (response) {
+                    alert(response)
+                },
+                error: function (error) {
+                    $.alert(error);
+                }
+            });
+
+}
+</script>
